@@ -1,0 +1,62 @@
+{
+  "name": "datafy-ant-design",
+  "license": "MIT",
+  "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "libs"
+  ],
+  "scripts": {
+    "test": "jest",
+    "prepack": "rm -rf ./lib && build",
+    "build": "rollup -c"
+  },
+  "peerDependencies": {
+    "antd": "*",
+    "@ant-design/icons": "*",
+    "lodash": "*",
+    "dayjs": "*"
+  },
+  "devDependencies": {
+    "@types/react": "*",
+    "react": "*",
+    "react-dom": "*",
+    "@faasjs/eslint-config-react": "beta",
+    "antd": "*",
+    "@ant-design/icons": "*",
+    "@types/lodash": "*",
+    "lodash": "*",
+    "dayjs": "*",
+    "@sucrase/jest-plugin": "*",
+    "@testing-library/jest-dom": "*",
+    "@testing-library/react": "*",
+    "@types/jest": "*",
+    "jest": "*",
+    "@rollup/plugin-sucrase": "*",
+    "rollup": "*"
+  },
+  "eslintConfig": {
+    "ignorePatterns": [
+      "**/dist"
+    ],
+    "extends": [
+      "@faasjs/react"
+    ]
+  },
+  "jest": {
+    "rootDir": "src",
+    "transform": {
+      ".(jsx|tsx?)": "@sucrase/jest-plugin"
+    },
+    "testEnvironment": "jsdom",
+    "collectCoverageFrom": [
+      "**/*.tsx"
+    ],
+    "testRegex": "/*\\.test\\.tsx?$",
+    "setupFilesAfterEnv": [
+      "./jest.setup.ts"
+    ]
+  }
+}
